@@ -29,7 +29,7 @@ delay(10);
 Blynk.begin(auth, wifi, ssid, pass);
 }
 
-void loop() {
+void Horus_run() {
   int cdsValue = analogRead(cds);
     Serial.println(cdsValue);
     if (cdsValue >900 ) {
@@ -51,6 +51,10 @@ void loop() {
       Serial.println("LED123 ON");
      }
     delay(2000);  
+  Blynk.virtualWrite(V0, (int)led1, led2, led3);
+}
+  
+void loop() {
+Horus_run();  
 Blynk.run();
-Blynk.virtualWrite(V0, (int)led1, led2, led3);
 }
